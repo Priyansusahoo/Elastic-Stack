@@ -17,6 +17,7 @@
           DELETE /pages
 
 # create indic including no. of shards and replicas
+
           PUT /products
           {
             "settings": {
@@ -26,6 +27,7 @@
           }
 
 # insert new doc in existing indic
+
           POST /products/_doc
           {
             "name": "poco f1",
@@ -34,6 +36,7 @@
           }
 
 # Create new doc mentioning doc-id
+
           PUT /products/_doc/100
           {
             "name": "poco M3",
@@ -42,12 +45,15 @@
           }
 
 # GET via doc-id
+
           GET /products/_doc/100
 
 # All doc in indic
+
           GET /products/_search
 
 # update doc fileds value
+
           POST /products/_update/100
           {
             "doc": {
@@ -58,6 +64,7 @@
 
 
 # add fields
+
           POST /products/_update/100
           {
             "doc": {
@@ -65,7 +72,8 @@
             }
           }
 
-# Example-1 : Modify source based on script, "ctx" is a variable that refers to context, then we set to _source then in_stock and decrement the value by 1
+# Example-1 : Modify source based on script, "ctx" is a variable that refers to as context, then we set to "_source" then "in_stock" and decrement the value by 1
+
           POST /products/_update/100
           {
             "script": {
@@ -75,6 +83,7 @@
 
 
 ## Example-2 :
+
           POST /products/_update/100
           {
             "script": {
@@ -83,6 +92,7 @@
           }
 
 ## Example-3 : Modify source based on script, "ctx" is a variable that refers to context, then we set to "_source" then "in_stock" and subtract the in_stock by "quantity" defiened in "param" and set the value as the new "in_stock"
+
           POST /products/_update/100
           {
             "script": {
@@ -105,10 +115,10 @@
 
 
 # GET via doc-id
+
           GET /products/_doc/100
 
-
-
+# Using condition in "script"
 
           POST /products/_update/100
           {
@@ -123,6 +133,7 @@
               """
             }
           }
+
 
 #  UPSERT
 ##  - If the doc already exixts it does as instructed in "script"
@@ -144,6 +155,7 @@
           GET /products/_doc/100
 
 # Replace Documents
+
         PUT /products/_doc/100
         {
           "name": "TOSTER",
