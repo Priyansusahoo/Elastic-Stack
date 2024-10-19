@@ -162,3 +162,8 @@
           "price": "2k",
           "in_stock": 50
         }
+# DELETE a document
+
+          DELETE /products/_doc/101
+          
+          GET /products/_doc/101
