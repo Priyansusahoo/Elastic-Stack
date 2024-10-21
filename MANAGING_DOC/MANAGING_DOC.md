@@ -166,3 +166,15 @@
           DELETE /products/_doc/101
           
           GET /products/_doc/101
+
+# Bulk insert data to products index using
+## Method 1:
+          POST /products/_bulk
+          // paste content in /Bulk_Doc/products-bulk.json
+
+## Method 1:
+          Download the file /Bulk_Doc/products-bulk.json
+
+          Run the below command from the dir of file (Modify the cacert / user, etc accordingly)
+          $ curl -H "Content-Type: application/x-ndjson" -u elastic --cacert "/ELK/elasticsearch-8.15.1/config/certs/http_ca.crt" -XPOST http://localhost:9200/products/_bulk --data-binary "@products-bulk.json"
+
